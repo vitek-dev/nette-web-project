@@ -1,27 +1,27 @@
 parameters:
 
-
 application:
-	errorPresenter:
-		4xx: Error:Error4xx
-		5xx: Error:Error5xx
-	mapping: App\Presentation\*\**Presenter
-
-
-database:
-	dsn: 'sqlite::memory:'
-	user:
-	password:
-
+	mapping:
+		Api: ['App', '*', 'Infrastructure\Http\Api\*Controller']
+		Frontend: ['App', '*', 'Infrastructure\Http\Frontend\*Presenter']
 
 latte:
 	strictTypes: yes
 	strictParsing: yes
-	extensions:
-		- App\Presentation\Accessory\LatteExtension
-
 
 di:
 	export:
 		parameters: no
 		tags: no
+
+services:
+    - App\Core\Infrastructure\Http\RouterFactory::createRouter
+    - Tracy\Bridges\Psr\TracyToPsrLoggerAdapter
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Facade
+			- *Factory
+			- *Repository
+			- *Service

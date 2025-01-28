@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property Nette\\Application\\UI\\Template\|stdClass\:\:#'
+			identifier: property.notFound
+			count: 1
+			path: app/Core/Infrastructure/Http/Frontend/HomepagePresenter.php

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="Coding standard">
+
+    <rule ref="VitekDevCodingStandard">
+        <exclude name="SlevomatCodingStandard.Files.LineLength"/>
+        <exclude name="SlevomatCodingStandard.Functions.UnusedParameter"/>
+    </rule>
+
+    <file>app</file>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <extensions>
+        <extension name="php"/>
+    </extensions>
+
+    <arg name="tab-width" value="4"/>
+</ruleset>
